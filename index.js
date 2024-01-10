@@ -14,7 +14,7 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
-	res.send('Running');
+	res.send('This server is created by srijit.');
 });
 
 io.on("connection", (socket) => {
