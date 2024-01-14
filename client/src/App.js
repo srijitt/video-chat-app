@@ -1,13 +1,12 @@
 import { VideoPlayer } from './components/VideoPlayer';
 import { Options } from './components/Options';
 import { Notifications } from './components/Notifications';
+import { Header } from './components/Header';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header text-4xl text-center mb-14">
-        <h1 className='py-8 text-4xl font-bold text-white'>Video Chat App</h1>
-      </header>
+      {/*<Header />*/}
       <VideoPlayer />
       <Options>
           <Notifications />

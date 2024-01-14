@@ -15,18 +15,22 @@ export const Options = ({ children }) => {
 
 
   return (
-    <div className='flex flex-col items-center my-12'>
-      <div className='bg-red-300 w-[50%] px-12 py-4 flex gap-20'>
-        <div className='py-4 w-full'>
-          <label htmlFor="ID" className='font-bold mb-4'>YOUR ID</label>
-          <form className="flex flex-col space-y-4" onSubmit={(e) => { e.preventDefault() }}>
-            <input type="text" name="ID" value={name} onChange={(e) => { setName(e.target.value); console.log(e.target.value) }} className='p-2 border-2 border-red-400' />
+    <div className='w-full py-12 flex flex-col justify-center items-center'>
+      
+      <div className="w-[80%] lg:w-[60]">
+      {children}
+      
+      <div className='flex flex-col lg:flex-row items-center justify-center lg:px-12 py-4 gap-10 lg:gap-40 lg:mt-10'>
+        <div className='p-12 w-full bg-black  rounded-2xl'>
+          <label htmlFor="ID" className='font-bold text-white'>Enter your name</label>
+          <form className="flex flex-col space-y-4 mt-2" onSubmit={(e) => { e.preventDefault() }}>
+            <input type="text" name="ID" value={name} onChange={(e) => { setName(e.target.value); console.log(e.target.value) }} className='py-2 px-4 border-2 border-slate-400 rounded-3xl' />
 
             {console.log(me)}
 
             <CopyToClipboard text={me}>
-              <button className='flex space-x-2 justify-center items-center bg-yellow-300 py-2 rounded-xl'>
-                <p>Copy to Clipboard</p>
+              <button className='flex space-x-2 justify-center items-center bg-slate-400 py-2 rounded-xl'>
+                <p>Copy ID</p>
                 <IoCopyOutline />
               </button>
             </CopyToClipboard>
@@ -34,10 +38,10 @@ export const Options = ({ children }) => {
           </form>
         </div>
 
-        <div className='py-4 w-full'>
-          <label htmlFor="IDtoCall" className='font-bold mb-4'>ID TO CALL</label>
-          <form className="flex flex-col space-y-4" onSubmit={(e) => { e.preventDefault()}}>
-            <input type="text" name="IDtoCall" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} className='p-2 border-2 border-red-400' />
+        <div className='p-12 w-full border-2 border-slate-500 rounded-2xl'>
+          <label htmlFor="IDtoCall" className='font-bold mb-4'>Enter caller's ID</label>
+          <form className="flex flex-col space-y-4 mt-2" onSubmit={(e) => { e.preventDefault()}}>
+            <input type="text" name="IDtoCall" value={idToCall} onChange={(e) => setIdToCall(e.target.value)} className='py-2 px-4 border-2 border-slate-400 rounded-3xl' />
 
             {callAccepted && !callEnded ? (
               <button className='flex space-x-2 justify-center items-center bg-red-600 py-2 rounded-xl' onClick={leaveCall}>
@@ -45,7 +49,7 @@ export const Options = ({ children }) => {
                 <MdCallEnd />
               </button>
             ) : (
-              <button className='flex space-x-2 justify-center items-center bg-green-400 py-2 rounded-xl' onClick={() => callUser(idToCall)}>
+              <button className='flex space-x-2 justify-center items-center bg-slate-400 py-2 rounded-xl' onClick={() => callUser(idToCall)}>
                 <p>Call</p>
                 <LuVideo />
               </button>
@@ -53,8 +57,11 @@ export const Options = ({ children }) => {
 
           </form>
         </div>
+        </div>
+        
       </div>
-      {children}
+
+      
     </div>
   )
 }
